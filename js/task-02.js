@@ -8,22 +8,18 @@ const ingredients = [
 ];
 
 const ingredientsEl = document.querySelector("#ingredients");
-const ingredientsItem = document.createElement("li");
-  ingredientsItem.textContent = ingredients;
+const createLi = (el) => {
+  const ingredientsItem = document.createElement("li");
+  ingredientsItem.textContent = el;
   ingredientsItem.classList.add("item");
-console.log(ingredientsItem);
-  
-ingredientsItem.li = ingredients;
-ingredientsEl.appendChild(ingredientsItem);
-console.log(ingredientsEl);
+  console.log(ingredientsItem);
+  return ingredientsItem;
+};
 
+const ingredientItem = ingredients.map(createLi);
+ingredientsEl.append(...ingredientItem);
 
-
-
-
-
-
-
+console.log(ingredientItem);
 
 // Напиши скрипт, який для кожного елемента масиву ingredients:
 
@@ -31,8 +27,6 @@ console.log(ingredientsEl);
 // Додасть назву інгредієнта як його текстовий вміст.
 // Додасть елементу клас item.
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
-
-
 
 // for (let index = 0; index < ingredients.length; index++) {
 //   const ingredientsItem = document.createElement("li");
